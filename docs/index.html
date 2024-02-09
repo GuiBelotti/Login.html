@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login.html</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <style>
+    .retangulo {
+      --beforeHeight: 10%;
+      --beforeColor: rgba(185, 187, 48, 0.671);
+      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(var(--responsiveUnit) * 8);
+      height: calc(var(--responsiveUnit) * 11);
+      background-color: #ffffff;
+      border-radius: calc(var(--responsiveUnit) * 0.5);
+      margin-block: calc(var(--responsiveUnit) * 0.8);
+      margin-inline: calc(var(--responsiveUnit) * 1);
+      padding: calc(var(--responsiveUnit) * 1);
+      position: relative;
+
+    }
+
+    .retangulo::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: var(--beforeHeight);
+      background-color: var(--beforeColor);
+      border-radius: calc(var(--responsiveUnit) * 0.5);
+      z-index: 1;
+      transition: all 0.5s ease-in-out;
+
+    }
+
+    .marginTopButtons{
+      margin-top: calc(var(--responsiveUnit) * 1);
+      border-radius: 30px;
+      border: calc(var(--responsiveUnit)* 0.094) rgb(0, 0, 0) solid;
+      padding-block: calc(var(--responsiveUnit) * 0.1);
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* .marginTopButtons:hover {
+    transform: rotateZ(360deg);
+    transition: all 2s ease-out;
+} */
+    input::placeholder {
+      color: black;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>
+      <a href="https://github.com/GuiBelotti/Login.html" target="_blank">Login.html</a>
+    </h1>
+  </header>
+
+  <main>
+
+      <div class="retangulo" id="retangulo">
+        <h2>
+          TELA DE LOGIN
+        </h2>
+        <div>
+          <form>
+            <input class="marginTopButtons" id="username" oninput="BgColor(event)" placeholder="Usuário" required>
+          </form>
+          <form>
+            <input class="marginTopButtons" type="password" id="password" oninput="BgColor(event)" placeholder="Senha" required>
+          </form>
+          <button class="marginTopButtons" type="submit" id = "submit" onclick="BgColor(event)">Entrar</button>
+        </div>
+
+      </div>
+
+  </main>
+
+  <footer>
+    <h2>
+      <br>
+      by <a href="https://github.com/GuiBelotti" target="_blank">GuiBelotti</a>
+    </h2>
+  </footer>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

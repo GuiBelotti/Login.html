@@ -1,0 +1,82 @@
+:root {
+  --responsiveUnit: calc(1vmin + 1vmax);
+
+  --text: #ffffff;
+  --wall: #000000;
+
+  --primary: #3880ff;
+  --secondary: #3dc2ff;
+  --tertiary: #5260ff;
+  --success: #2dd36f;
+  --warning: #ffc409;
+  --danger: #eb445a;
+  --dark: #222428;
+  --medium: #92949c;
+  --light: #f4f5f8;
+}
+
+html {
+  overflow: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--text);
+  background-color: var(--wall);
+  text-align: center;
+  font-family: monospace;
+  overflow: auto;
+}
+
+header {
+  border-bottom: calc(var(--responsiveUnit) * 0.1) solid var(--light);
+}
+
+footer {
+  border-top: calc(var(--responsiveUnit) * 0.1) solid var(--light);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+a {
+  color: var(--tertiary);
+  text-decoration: none;
+}
+
+h1 {
+  font-size: calc(var(--responsiveUnit) * 2);
+}
+
+h2 {
+  font-size: calc(var(--responsiveUnit) * 1.1);
+  color: #000000;
+  font-weight: bolder;
+  z-index: 2;
+  position: relative;
+
+}
+
+@media (orientation: portrait) {
+  h1 {
+    font-size: calc(var(--responsiveUnit) * 4);
+  }
+
+  h2 {
+    font-size: calc(var(--responsiveUnit) * 3);
+  }
+}
+
