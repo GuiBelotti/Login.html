@@ -9,55 +9,66 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
+
   <style>
     .retangulo {
-      --beforeHeight: 10%;
-      --beforeColor: rgba(185, 187, 48, 0.671);
+      --beforeHeight: 20%;
+      --beforeColor: #601c8d;
+      --wave: url('assets/wave.svg');
+      --backgroundWave: linear-gradient(to top, var(--beforeColor) 50%, transparent 50%);
       flex-direction: column;
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: calc(var(--responsiveUnit) * 8);
-      height: calc(var(--responsiveUnit) * 11);
+      height: calc(var(--responsiveUnit) * 12);
       background-color: #ffffff;
       border-radius: calc(var(--responsiveUnit) * 0.5);
       margin-block: calc(var(--responsiveUnit) * 0.8);
       margin-inline: calc(var(--responsiveUnit) * 1);
       padding: calc(var(--responsiveUnit) * 1);
       position: relative;
-
+      overflow: hidden;
+      transition: all 1s ease-in-out;
     }
 
     .retangulo::before {
-      content: "";
+      content: var(--wave);
+      transform: scale(6.5);
+      opacity: 0.7;
       position: absolute;
       width: 100%;
       bottom: 0;
       height: var(--beforeHeight);
-      background-color: var(--beforeColor);
+      background:  var(--backgroundWave);
       border-radius: calc(var(--responsiveUnit) * 0.5);
       z-index: 1;
-      transition: all 0.5s ease-in-out;
-
+      transition: all 1s ease-in-out;
     }
 
-    .marginTopButtons{
+
+
+    .marginTopButtons {
       margin-top: calc(var(--responsiveUnit) * 1);
       border-radius: 30px;
-      border: calc(var(--responsiveUnit)* 0.094) rgb(0, 0, 0) solid;
+      border: calc(var(--responsiveUnit)* 0.12) rgb(0, 0, 0) solid;
       padding-block: calc(var(--responsiveUnit) * 0.1);
       text-align: center;
       z-index: 2;
       position: relative;
+      background-color: transparent;
     }
 
-    /* .marginTopButtons:hover {
-    transform: rotateZ(360deg);
-    transition: all 2s ease-out;
-} */
     input::placeholder {
       color: black;
     }
+
+    img {
+      width: 50px;
+      height: 50px;
+      z-index: 2;
+    }
+
   </style>
 
 </head>
@@ -72,20 +83,27 @@
   <main>
 
       <div class="retangulo" id="retangulo">
+
         <h2>
           TELA DE LOGIN
         </h2>
+
+        <img src="assets/wine.svg">
+
         <div>
           <form>
             <input class="marginTopButtons" id="username" oninput="BgColor(event)" placeholder="Usuário" required>
           </form>
           <form>
-            <input class="marginTopButtons" type="password" id="password" oninput="BgColor(event)" placeholder="Senha" required>
+            <input class="marginTopButtons" type="password" id="password" oninput="BgColor(event)" placeholder="Senha"
+              required>
           </form>
-          <button class="marginTopButtons" type="submit" id = "submit" onclick="BgColor(event)">Entrar</button>
+          <button class="marginTopButtons" type="submit" id="submit" onclick="BgColor(event)">Entrar</button>
         </div>
 
-      </div>
+
+    </div>
+
 
   </main>
 
