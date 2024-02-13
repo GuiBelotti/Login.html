@@ -12,10 +12,8 @@
 
   <style>
     .retangulo {
-      --beforeHeight: 20%;
+      --beforeHeight: 10%;
       --beforeColor: #601c8d;
-      --wave: url('assets/wave.svg');
-      --backgroundWave: linear-gradient(to top, var(--beforeColor) 50%, transparent 50%);
       flex-direction: column;
       display: flex;
       justify-content: space-between;
@@ -33,17 +31,61 @@
     }
 
     .retangulo::before {
-      content: var(--wave);
-      transform: scale(6.5);
+      content: "";
+      background-color: var(--beforeColor);
       opacity: 0.7;
       position: absolute;
       width: 100%;
       bottom: 0;
       height: var(--beforeHeight);
-      background:  var(--backgroundWave);
-      border-radius: calc(var(--responsiveUnit) * 0.5);
+      /* border-radius: calc(var(--responsiveUnit) * 0.3); */
       z-index: 1;
       transition: all 1s ease-in-out;
+    }
+
+    .mask{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--beforeHeight);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      transition: all 1s ease-in-out;
+    }
+
+    .waves{
+      position: relative;
+      width: 100%;
+      height: 10%;
+      transition: all 1s ease-in-out;
+    }
+
+
+    .wave {
+      position: absolute;
+      bottom: var(--wave-bottom);
+      left: var(--wave-left);
+      width:  calc(var(--responsiveUnit) * var(--wave-size));
+      height: calc(var(--responsiveUnit) * var(--wave-size));
+      border-radius: 33% 67% 47% 53% / 58% 47% 53% 42% ;
+      background: #ffffff;
+      animation: spin 6s infinite linear;
+      animation-delay: var(--wave-delay);
+      transition: all 1s ease-in-out;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+
     }
 
 
@@ -83,6 +125,15 @@
   <main>
 
       <div class="retangulo" id="retangulo">
+        <div class="mask">
+          <div class="waves">
+            <div class="wave" style="--wave-delay: 0s; --wave-bottom: 0; --wave-left: 0%; --wave-size: 2; --beforeColor: #601c8d;"></div>
+            <div class="wave" style="--wave-delay: 0s; --wave-bottom: 0; --wave-left: 20%; --wave-size: 2; --beforeColor: #601c8d;"></div>
+            <div class="wave" style="--wave-delay: 0s; --wave-bottom: 0; --wave-left: 40%; --wave-size: 2; --beforeColor: #601c8d;"></div>
+            <div class="wave" style="--wave-delay: 0s; --wave-bottom: 0; --wave-left: 60%; --wave-size: 2; --beforeColor: #601c8d;"></div>
+            <div class="wave" style="--wave-delay: 0s; --wave-bottom: 0; --wave-left: 80%; --wave-size: 2; --beforeColor: #601c8d;"></div>
+        </div>
+        </div>
 
         <h2>
           TELA DE LOGIN

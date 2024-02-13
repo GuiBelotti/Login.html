@@ -11,9 +11,10 @@ var buttonClick = false;
 function BgColor(event) {
 
   const beforeHeight = getComputedStyle(retangulo).getPropertyValue('--beforeHeight');
-  const SomaHeight = parseInt(beforeHeight) + 10 + "%";
-  var valorHeightAnterior = (parseInt(beforeHeight) == 30) ? 20 : parseInt(beforeHeight) - 10;
-  var valorHeightAtual = (valorHeightAnterior < 20) ? 20 : valorHeightAnterior;
+  const SomaHeight = parseInt(beforeHeight) + 30 + "%";
+  var valorHeightAnterior = (parseInt(beforeHeight) == 30) ? 10 : parseInt(beforeHeight) - 30;
+  var valorHeightAtual = (valorHeightAnterior < 30) ? 10 : valorHeightAnterior;
+
   if (!userChange) {
     if (userInput.value && event.target == userInput) {
       retangulo.style.setProperty('--beforeHeight', SomaHeight);
@@ -59,13 +60,9 @@ function BgColor(event) {
         passInput.style.borderColor = "red";
         retangulo.style.setProperty('--beforeHeight', "20%");
         retangulo.style.setProperty('--beforeColor', "#fa0000");
-        retangulo.style.setProperty('--wave', "url('assets/waveError.svg')");
-        retangulo.style.setProperty('--backgroundWave', "linear-gradient(to top, #fa0000 30%, transparent 50%)");
 
         setTimeout(() => {
           retangulo.style.setProperty('--beforeColor', "#601C8D");
-          retangulo.style.setProperty('--wave', "url('assets/wave.svg')");
-          retangulo.style.setProperty('--backgroundWave', "linear-gradient(to top, var(--beforeColor) 50%, transparent 50%)");
         }, 1000);
 
         userInput.value = "";
